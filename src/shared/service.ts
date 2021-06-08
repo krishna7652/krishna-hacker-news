@@ -7,3 +7,11 @@ export const getTopStories = async (limit = 10) => {
     }
     return null;
 }
+
+export const getItemDetails = async (itemId: number) => {
+    const response = await axios.get(`item/${itemId}.json`)
+    if (response.status === 200) {
+        return response.data;
+    }
+    return null;
+}

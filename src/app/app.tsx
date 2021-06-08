@@ -1,5 +1,6 @@
 import React from 'react';
 import { getTopStories } from '../shared/service';
+import Story from '../story/story';
 import './app.css';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
     <div className="App">
       <div>Top 10 stories:</div>
       {
-        stories.map(storyId => <div>{storyId}</div>)
+        stories.map(storyId => <Story key={storyId} id={storyId} />)
       }
     </div>
   );
