@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from '../comment/comment';
 import { getItemDetails } from '../shared/service';
 import './story.css';
 
@@ -25,7 +26,7 @@ function Story(props: storyProps) {
         <div className="story">
             story {storyDetails.id}
             <div className="comments">
-                {(storyDetails.kids || []).slice(0, 20).map((kidId: number) => <div>Comment {kidId}</div>)}
+                {(storyDetails.kids || []).slice(0, 20).map((kidId: number) => <Comment key={kidId} id={kidId} />)}
             </div>
         </div>
     );
