@@ -12,8 +12,11 @@ function Comment(props: commentProps) {
 
     React.useEffect(() => {
         (async () => {
-            const data = await getItemDetails(props.id);
-            setCommentDetails(data);
+            let data = await getItemDetails(props.id);
+            if (data) {
+                data.timeText = data.time ? new Date(data.time).toLocaleTimeString() : null;
+                setCommentDetails(data);
+            }
         })();
     }, [props.id]);
 
@@ -21,9 +24,17 @@ function Comment(props: commentProps) {
         return null;
     }
 
+    const getComment = () => {
+        return {
+            __html: commentDetails.text
+        }
+    }
+
     return (
-        <div className="comment">
-            comment {commentDetails.id}
+        <div className="hover:shadow-lg hover:bg-purple-300  px-4 py-3 rounded relative shadow-md my-5">
+            <div dangerouslySetInnerHTML={getComment()} />
+            <div className="mt-3"><span className="font-bold">By:</span> {commentDetails.by}</div>
+            <div>{commentDetails.timeText}</div>
         </div>
     );
 }

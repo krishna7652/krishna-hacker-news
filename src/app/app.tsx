@@ -17,11 +17,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div>Top 10 stories:</div>
-      {
-        stories.map(storyId => <Story key={storyId} id={storyId} />)
-      }
+    <div className="container mx-auto my-5 px-2 text-center sm:text-left break-all sm:break-normal">
+      <div className="mb-5 text-blue font-bold">Top 10 stories:</div>
+      <div className="md:flex md:flex-wrap">
+        {
+          stories.map(storyId => <Story key={storyId} id={storyId} />)
+        }
+      </div>
     </div>
   );
 }
