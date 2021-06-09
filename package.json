@@ -2,6 +2,7 @@
   "name": "krishna-hacker-news",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://krishna7652.github.io/krishna-hacker-news/",
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@testing-library/jest-dom": "^5.13.0",
